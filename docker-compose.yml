@@ -1,0 +1,6 @@
+version: '3'
+services:
+  testdokploy:
+    image: evanambrose/testdokploy:77
+    ports:
+      - "8080:8080"

@@ -8,6 +8,10 @@ import java.util.concurrent.atomic.AtomicLong
 @RestController
 class Controller {
 
+    init {
+        println("Controller init")
+    }
+
     @GetMapping("/greeting")
     fun greeting() : String{
         return "Hello, World!"
