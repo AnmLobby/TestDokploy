@@ -3,4 +3,15 @@ services:
   testdokploy:
     image: evanambrose/testdokploy:77
     ports:
-      - "8080:8080"
+      - 7766
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.testdokploy.rule=Host(`docker.lewdman.men`)"
+      - "traefik.http.routers.testdokploy.entrypoints=websecure"
+      - "traefik.http.routers.testdokploy.tls.certResolver=letsencrypt"
+      - "traefik.http.services.testdokploy.loadbalancer.server.port=7766"
+networks:
+  dokploy-network:
+    external: true
